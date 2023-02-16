@@ -1,0 +1,20 @@
+.cont {
+    margin: 0 !important;
+    color: white;
+}
+.imgb{
+    height:100vh;
+    width: 100%;
+    background-image: url("../../assets/images/login3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-login{
+    width: 20vw; 
+    height: 40vh;
+    margin-top: 20%;
+    margin-left: 3%;
+    background-color:  rgb(75, 75, 75);
+}
