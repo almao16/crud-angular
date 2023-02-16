@@ -11,7 +11,7 @@
               <input
                 type="email"
                 class="form-control"
-                formControlName="email" 
+                formControlName="usuario" 
                 id="email"
                 required
                 name="email"
@@ -32,6 +32,9 @@
     
             <div *ngIf="vacio" class="alert alert-danger">
               Debe llenar todos los campos
+            </div>
+            <div *ngIf="error" class="alert alert-danger">
+              Correo o Contraseña invalida
             </div>
             <br/>
             <button

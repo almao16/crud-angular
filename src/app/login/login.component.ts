@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { FormGroup, FormControl, Validators} from '@angular/forms'
-// import { Usuario } from '../usuario';
-// import { HttpClient, HttpHeaders } from '@angular/common/http';
-// import { map } from 'rxjs';
+import { UsersService } from '../services/users.service';
+import { Response } from '../usuario';
+
+
 
 @Component({
   selector: 'app-login',
@@ -12,30 +13,22 @@ import { FormGroup, FormControl, Validators} from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
   loginForm= new FormGroup({
-    email : new FormControl('',Validators.required),
+    usuario : new FormControl('',Validators.required),
     password : new FormControl('',Validators.required)
   })
  vacio = false;
  submitted = false;
+ error = false;
 //  model = new Usuario(18, '', '', '');
 
 
 
 
-  constructor( private router:Router) { }
+  constructor( private router:Router, private usersService: UsersService) { }
 
   ngOnInit(): void {
     this.checkLocalStorage();
   }
-  // onSubmit() { 
-  //   //this.submitted = true;
-  // alert("Registro Exitoso.!");
-  // // this.model =new Hero(23, '', '', '','','','','');
-  // this.router.navigate(['home'])
-  // }
-
-  
-  
 
   checkLocalStorage(){
     if(localStorage.getItem('token')){
@@ -45,17 +38,17 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form : any){
-    // console.log(form);
-    // this.api.loginByEmail(form).subscribe(data => {
-    //   let dataResponse:ResponseI = data;
-    //   if (dataResponse.status == 'ok'){
-    //     localStorage.setItem("token",dataResponse.result.token)
-    //     this.router.navigate(['dashboard'])
-    //   }else{
-    //     this.errorStatus = true;
-    //     this.errorMsj = dataResponse.result.error_msg;
-    //   }
-    //   // console.log(data)
-    // })
+    console.log(form);
+    this.usersService.login(form).subscribe(data => {
+      let dataResponse:Response = data;
+      if (dataResponse.status == 'ok'){
+        localStorage.setItem("token",dataResponse.result.token);
+        this.router.navigate(['home']);
+       
+      }else{
+        this.error =true;
+      }
+      // console.log(data)
+    })
   }
 }

@@ -1,25 +1,31 @@
 <app-nav-bar></app-nav-bar>
-<div class="container text-center " style="margin-top: 1vh;">
+<div class="justify-content-right imgb">
+  <br>
+  <br>
+  <br>
+  <div class="container text-center cont" >
+   
     <div class="row">
       <table class="table">
     <thead class="table-dark">
        <tr>
-        <th scope="col">IdHeroe</th>
-        <th scope="col">Nombres</th>
-        <th scope="col">Apellidos</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Nro. Celular</th>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">DNI</th>
+        <th scope="col">TEFEFONO</th>
+        <th scope="col">CORREO</th>
       </tr>
     </thead>
-    <tbody class="table-group-divider"*ngIf="characters$ |async as characters">
-      <tr *ngFor="let hero of characters">
-        <th>{{hero.idUserLanding}}</th>
-        <td>{{hero.names}}</td>
-        <td>{{hero.lastNames}}</td>
-        <td>{{hero.email}}</td>
-        <td>{{hero.phone}}</td>
+    <tbody *ngFor="let characters of characters$" (click)="editPatient(characters.PacienteId)">
+      <tr>
+        <th scope="row">{{characters.PacienteId}}</th>
+        <td>{{characters.Nombre}}</td>
+        <td>{{characters.DNI}}</td>
+        <td>{{characters.Telefono}}</td>
+        <td>{{characters.Correo}}</td>
       </tr>
     </tbody>
   </table>
     </div>
   </div>
+</div>

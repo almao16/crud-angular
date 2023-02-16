@@ -1,45 +1,28 @@
-export interface UsuariosListApi{
-    err: boolean,
-    message: string,
-    data: UsuariosListdata
+export interface Response{
+   status: string;
+   result: any;
 }
 
-
-export interface UsuariosListdata{
-   currentPage: number,
-   rows: number,
-   totalRows: number,
-   totalPages: number,
-   items:UsuariosListItems[]
+export interface Paciente{
+   PacienteId: string;
+   DNI: string;
+   Nombre: string;
+   Direccion: string;
+   CodigoPostal: string;
+   Telefono: string;
+   Genero: string;
+   FechaNacimiento: string;
+   Correo: string;
+}
+export interface Login{
+   usuario:string;
+   password:string;
 }
 
-export interface UsuariosListItems{
- idUserLanding: number,
- names: string,
- lastNames: string,
- email: string,
- phone: string,
- password:string,
- photo: string,
- active: boolean
+export interface ListaPaciente{
+   PacienteId: string;
+   Nombre: string;
+   DNI: string;
+   Telefono: string;
+   Correo: string;
 }
-
-export interface UsuariosGetApi{
- err: boolean,
- message: string,
- data: Usuario
-}
-
-
-
-export interface Usuario{
-   idUserLanding: number,
-   names: string,
-   lastNames: string,
-   email: string,
-   phone: string,
-   password: string,
-   photo: string,
-   active: string,
-}
-

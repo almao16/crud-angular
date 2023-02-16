@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="justify-content-right imgb">
+    <br>
+    <div class="justify-content-right">
+        <p align="right" style="margin-right: 20%;"> <button type="button" class="btn btn-sm btn-primary btn-right" (click)="close()">Salir</button> </p>
+      </div>
+    
+    <div class="container cont">
+        <form class="col-12" [formGroup]="editForm" (ngSubmit)="postForm(editForm.value)">
+         
+            <br><br>
+            <div class="form-group col-12">
+                <label for="exampleFormControlImput1">Nombre</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="nombre">
+            <!-- </div>
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Direccion</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="direccion">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlImput1">DNI</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="dni">
+            <!-- </div>
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Codigo Postal</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="codigoPostal">
+            <!-- </div>
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Telefono</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="telefono">
+            <!-- </div>
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Fecha de Nacimiento</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="fechaNacimiento">
+            <!-- </div>
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Correo</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="correo">
+            <!-- </div> 
+            <div class="form-group"> -->
+                <label for="exampleFormControlImput1">Genero</label>
+                <input type="text" class="form-control" placeholder="Nombre del Paciente" formControlName="genero">
+            </div>
+    
+            <br>
+      
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="delete()">Eliminar</button>
+            <br>
+        </form>
+    </div>
+</div>
